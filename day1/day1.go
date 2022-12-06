@@ -2,27 +2,10 @@ package day1
 
 import (
 	"fmt"
-	"io/fs"
-	"io/ioutil"
-	"log"
 	"sort"
 	"strconv"
 	"strings"
 )
-
-func ReadInput(filesystem fs.FS, filename string) (string, error) {
-	file, err := filesystem.Open(filename)
-	if err != nil {
-		return "", fmt.Errorf("failed to open file: %w", err)
-	}
-
-	content, err := ioutil.ReadAll(file)
-	if err != nil {
-		return "", fmt.Errorf("failed to read file: %w", err)
-	}
-
-	return string(content), nil
-}
 
 func Sum(calories []string) (int, error) {
 	result := 0
@@ -107,8 +90,6 @@ func GetThreeFattiest(content string) (int, error) {
 
 		rank = InsertToRank(rank, sumCals)
 	}
-
-	log.Printf("Rank: %+v", rank)
 
 	return SumRank(rank), nil
 }

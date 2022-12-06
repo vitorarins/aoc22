@@ -1,75 +1,12 @@
 package day1_test
 
 import (
-	"io/fs"
 	"testing"
-	"testing/fstest"
 
 	"github.com/google/go-cmp/cmp"
 
 	"github.com/vitorarins/aoc22/day1"
 )
-
-func TestReadInput(t *testing.T) {
-	testCases := map[string]struct {
-		fsys     fs.FS
-		filename string
-		want     string
-	}{
-		"ok": {
-			fsys: fstest.MapFS{
-				"input": {
-					Data: []byte("hello, world"),
-				},
-			},
-			filename: "input",
-			want:     "hello, world",
-		},
-
-		"elves": {
-			fsys: fstest.MapFS{
-				"input": {
-					Data: []byte(`
-7183
-3394
-
-25380
-25324
-16859
-
-7300
-3697
-`),
-				},
-			},
-			filename: "input",
-			want: `
-7183
-3394
-
-25380
-25324
-16859
-
-7300
-3697
-`,
-		},
-	}
-
-	for n, tc := range testCases {
-		t.Run(n, func(t *testing.T) {
-			got, err := day1.ReadInput(tc.fsys, tc.filename)
-			if err != nil {
-				t.Error(err)
-			}
-
-			if diff := cmp.Diff(tc.want, got); diff != "" {
-				t.Errorf("content mismatch (-want +got):\n%s", diff)
-			}
-		})
-	}
-}
 
 func TestSum(t *testing.T) {
 	testCases := map[string]struct {
