@@ -10,6 +10,7 @@ import (
 	"github.com/vitorarins/aoc22/day4"
 	"github.com/vitorarins/aoc22/day5"
 	"github.com/vitorarins/aoc22/day6"
+	"github.com/vitorarins/aoc22/day7"
 	"github.com/vitorarins/aoc22/util"
 )
 
@@ -193,5 +194,35 @@ func main() {
 	}
 
 	log.Printf("Day 6, part 2: %d", startOfMsg)
+
+	// day7 #part1
+
+	fsys = os.DirFS("./day7")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sumUpTo, err := day7.GetFileSizes(inputContent)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("Day 7, part 1: %d", sumUpTo)
+
+	// day7 #part2
+
+	fsys = os.DirFS("./day7")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sumMinDir, err := day7.GetMinDir(inputContent)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("Day 7, part 2: %d", sumMinDir)
 
 }
