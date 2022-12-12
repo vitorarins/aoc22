@@ -5,12 +5,16 @@ import (
 	"os"
 
 	"github.com/vitorarins/aoc22/day1"
+	"github.com/vitorarins/aoc22/day10"
+	"github.com/vitorarins/aoc22/day11"
 	"github.com/vitorarins/aoc22/day2"
 	"github.com/vitorarins/aoc22/day3"
 	"github.com/vitorarins/aoc22/day4"
 	"github.com/vitorarins/aoc22/day5"
 	"github.com/vitorarins/aoc22/day6"
 	"github.com/vitorarins/aoc22/day7"
+	"github.com/vitorarins/aoc22/day8"
+	"github.com/vitorarins/aoc22/day9"
 	"github.com/vitorarins/aoc22/util"
 )
 
@@ -224,5 +228,101 @@ func main() {
 	}
 
 	log.Printf("Day 7, part 2: %d", sumMinDir)
+
+	// day8 #part1
+
+	fsys = os.DirFS("./day8")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	trees := day8.GetVisibleTrees(inputContent)
+
+	log.Printf("Day 8, part 1: %d", trees)
+
+	// day8 #part2
+
+	fsys = os.DirFS("./day8")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	scenic := day8.GetScenic(inputContent)
+
+	log.Printf("Day 8, part 2: %d", scenic)
+
+	// day9 #part1
+
+	fsys = os.DirFS("./day9")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	lenPos := day9.GetPos(inputContent)
+
+	log.Printf("Day 9, part 1: %d", lenPos)
+
+	// day9 #part2
+
+	fsys = os.DirFS("./day9")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	lenPosMany := day9.GetPosManyHeads(inputContent)
+
+	log.Printf("Day 9, part 2: %d", lenPosMany)
+
+	// day10 #part1
+
+	fsys = os.DirFS("./day10")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sumSignal := day10.GetSumSignal(inputContent)
+
+	log.Printf("Day 10, part 1: %d", sumSignal)
+
+	// day10 #part2
+
+	fsys = os.DirFS("./day10")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	crt := day10.PaintCRT(inputContent)
+
+	log.Printf("Day 10, part 2: \n%s", crt)
+
+	// day11 #part1
+
+	fsys = os.DirFS("./day11")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	mBus := day11.GetMonkeyBusiness20(inputContent)
+
+	log.Printf("Day 11, part 1: %d", mBus)
+
+	// day11 #part2
+
+	fsys = os.DirFS("./day11")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	mBus10000 := day11.GetMonkeyBusiness10000(inputContent)
+
+	log.Printf("Day 11, part 2: %d", mBus10000)
 
 }
