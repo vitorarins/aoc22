@@ -7,6 +7,7 @@ import (
 	"github.com/vitorarins/aoc22/day1"
 	"github.com/vitorarins/aoc22/day10"
 	"github.com/vitorarins/aoc22/day11"
+	"github.com/vitorarins/aoc22/day12"
 	"github.com/vitorarins/aoc22/day2"
 	"github.com/vitorarins/aoc22/day3"
 	"github.com/vitorarins/aoc22/day4"
@@ -325,4 +326,27 @@ func main() {
 
 	log.Printf("Day 11, part 2: %d", mBus10000)
 
+	// day12 #part1
+
+	fsys = os.DirFS("./day12")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	steps := day12.GetPathSteps(inputContent)
+
+	log.Printf("Day 12, part 1: %d", steps)
+
+	// day12 #part2
+
+	fsys = os.DirFS("./day12")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	stepsManyStarts := day12.GetPathStepsManyStarts(inputContent)
+
+	log.Printf("Day 12, part 2: %d", stepsManyStarts)
 }
