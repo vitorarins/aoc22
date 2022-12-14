@@ -9,6 +9,7 @@ import (
 	"github.com/vitorarins/aoc22/day11"
 	"github.com/vitorarins/aoc22/day12"
 	"github.com/vitorarins/aoc22/day13"
+	"github.com/vitorarins/aoc22/day14"
 	"github.com/vitorarins/aoc22/day2"
 	"github.com/vitorarins/aoc22/day3"
 	"github.com/vitorarins/aoc22/day4"
@@ -374,4 +375,28 @@ func main() {
 	decoderKey := day13.GetDecoderKey(inputContent)
 
 	log.Printf("Day 13, part 2: %d", decoderKey)
+
+	// day14 #part1
+
+	fsys = os.DirFS("./day14")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sandUnits := day14.GetSandUnitsBottomless(inputContent)
+
+	log.Printf("Day 14, part 1: %d", sandUnits)
+
+	// day14 #part2
+
+	fsys = os.DirFS("./day14")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sand := day14.GetSandUnitsWithBottom(inputContent)
+
+	log.Printf("Day 14, part 2: %d", sand)
 }
