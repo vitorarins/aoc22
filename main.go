@@ -10,6 +10,7 @@ import (
 	"github.com/vitorarins/aoc22/day12"
 	"github.com/vitorarins/aoc22/day13"
 	"github.com/vitorarins/aoc22/day14"
+	"github.com/vitorarins/aoc22/day15"
 	"github.com/vitorarins/aoc22/day2"
 	"github.com/vitorarins/aoc22/day3"
 	"github.com/vitorarins/aoc22/day4"
@@ -399,4 +400,28 @@ func main() {
 	sand := day14.GetSandUnitsWithBottom(inputContent)
 
 	log.Printf("Day 14, part 2: %d", sand)
+
+	// day15 #part1
+
+	fsys = os.DirFS("./day15")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	noBeaconsPos := day15.GetNoBeacons(inputContent)
+
+	log.Printf("Day 15, part 1: %d", noBeaconsPos)
+
+	// day15 #part2
+
+	fsys = os.DirFS("./day15")
+	inputContent, err = util.ReadInput(fsys, "input")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tuningFreq := day15.GetTuningFreq(inputContent)
+
+	log.Printf("Day 15, part 2: %d", tuningFreq)
 }
